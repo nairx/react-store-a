@@ -1,0 +1,4 @@
+.App-Header-Row{
+    display: flex;
+    justify-content: space-between;
+}
