@@ -1,5 +1,4 @@
 import React from 'react'
-import "./App1.css"
 export default function App1() {
     let a = 10
     let b = 20
