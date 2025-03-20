@@ -4,9 +4,10 @@ export default function Header() {
   return (
     <div className="App-Header-Row">
       <h1>My React Store</h1>
-      <div>
-        <Link to="products">Home</Link>
-        <Link to="login">Login</Link>
+      <div className="App-Header-Links">
+        <Link to="products" className="App-Header-Link">Home</Link>
+        <Link to="cart" className="App-Header-Link">Cart</Link>
+        <Link to="login" className="App-Header-Link">Login</Link>
       </div>
     </div>
   );
