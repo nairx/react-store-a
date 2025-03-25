@@ -43,12 +43,20 @@ export default function Register() {
       <div className="App-Register-Box">
         <h3>Userlist</h3>
         <table className="App-Register-Table">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th></th>
+          </tr>
           {users.map((value, index) => (
             <tr key={index}>
               <td>{value.name}</td>
               <td>{value.email}</td>
               <td>{value.password}</td>
-              <td><button>Delete</button></td>
+              <td>
+                <button>Delete</button>
+              </td>
             </tr>
           ))}
         </table>
