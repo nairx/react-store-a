@@ -5,8 +5,16 @@ import "./Register.css";
 export default function Register() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [msg, setMsg] = useState();
   const handleSubmit = () => {
-    setUsers([...users, user]);
+    const found = users.find((value) => value.email === user.email);
+    if (found) {
+      setMsg("User already exists");
+    } else {
+      setMsg();
+      setUsers([...users, user]);
+      setUser({ ...user, name: "", email: "", password: "" });
+    }
   };
   const handleDelete = (email) => {
     setUsers(users.filter((value) => value.email != email));
@@ -15,9 +23,11 @@ export default function Register() {
     <div className="App-Register-Row">
       <div className="App-Register-Box">
         <h3>Registration Form</h3>
+        {msg}
         <p>
           <input
             type="text"
+            value={user.name}
             placeholder="Enter Name"
             onChange={(e) => setUser({ ...user, name: e.target.value })}
           ></input>
@@ -25,6 +35,7 @@ export default function Register() {
         <p>
           <input
             type="text"
+            value={user.email}
             placeholder="Email address"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           ></input>
@@ -32,6 +43,7 @@ export default function Register() {
         <p>
           <input
             type="password"
+            value={user.password}
             placeholder="New password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           ></input>
