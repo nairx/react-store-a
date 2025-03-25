@@ -8,6 +8,9 @@ export default function Register() {
   const handleSubmit = () => {
     setUsers([...users, user]);
   };
+  const handleDelete = (email) => {
+    setUsers(users.filter((value) => value.email != email));
+  };
   return (
     <div className="App-Register-Row">
       <div className="App-Register-Box">
@@ -55,7 +58,9 @@ export default function Register() {
               <td>{value.email}</td>
               <td>{value.password}</td>
               <td>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(value.email)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
