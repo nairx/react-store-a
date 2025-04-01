@@ -2,8 +2,10 @@ import "./Products.css";
 import { appContext } from "../App";
 import { useContext } from "react";
 export default function Products() {
-  const { user, products } = useContext(appContext);
-  const handleSubmit = (id) => {};
+  const { user, products, cart, setCart } = useContext(appContext);
+  const addToCart = (id) => {
+    setCart({ ...cart, [id]: 1 });
+  };
   return (
     <div>
       {user.name}
