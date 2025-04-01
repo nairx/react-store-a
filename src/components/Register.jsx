@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef, useContext } from "react";
 import { appContext } from "../App";
 import "./Register.css";
@@ -7,6 +7,7 @@ export default function Register() {
   const { users, setUsers, user, setUser } = useContext(appContext);
   const [msg, setMsg] = useState();
   const msgRef = useRef();
+  const Navigate = useNavigate()
   const handleSubmit = () => {
     const found = users.find((value) => value.email === user.email);
     if (found) {
@@ -15,7 +16,8 @@ export default function Register() {
     } else {
       setMsg();
       setUsers([...users, user]);
-      setUser({ ...user, name: "", email: "", password: "" });
+      //setUser({ ...user, name: "", email: "", password: "" });
+      Navigate("/")
     }
   };
   const handleDelete = (email) => {

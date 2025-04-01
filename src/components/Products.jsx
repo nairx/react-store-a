@@ -1,5 +1,8 @@
 import "./Products.css"
+import { appContext } from "../App";
+import { useContext } from "react";
 export default function Products() {
+  const {user} = useContext(appContext)
   const products = [
     { id: 1, name: "Product 1", price: 30 },
     { id: 2, name: "Product 2", price: 40 },
@@ -10,7 +13,9 @@ export default function Products() {
   ];
   return (
     <div>
+       {user.name}
       <div className="App-Products-Row">
+       
         {products.map((value, index) => (
           <div className="App-Products-Box" key={index}>
             <h3>{value.name}</h3>
