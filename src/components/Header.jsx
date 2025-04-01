@@ -14,7 +14,7 @@ export default function Header() {
         <Link to="cart" className="App-Header-Link">
           Cart
         </Link>
-        {user.name === undefined || user.name === "" ? (
+        {user.email === "" ? (
           <Link to="login" className="App-Header-Link">
             Login
           </Link>

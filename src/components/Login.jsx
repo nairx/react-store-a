@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
   const { user, setUser, users } = useContext(appContext);
-  const { msg, setMsg } = useState();
+  const [msg, setMsg] = useState();
   const Navigate = useNavigate();
   const handleSubmit = () => {
     const found = users.find(
