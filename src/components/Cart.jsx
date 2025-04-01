@@ -6,6 +6,7 @@ export default function Cart() {
   const handleDelete = (id) => {
     setCart({ ...cart, [id]: 0 });
   };
+  
   return (
     <div>
       {products.map(
