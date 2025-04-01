@@ -3,7 +3,7 @@ import { appContext } from "../App";
 import { useContext } from "react";
 export default function Products() {
   const { user, products } = useContext(appContext);
-
+  const handleSubmit = (id) => {};
   return (
     <div>
       {user.name}
@@ -12,7 +12,7 @@ export default function Products() {
           <div className="App-Products-Box" key={index}>
             <h3>{value.name}</h3>
             <h4>{value.price}</h4>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCart(value.id)}>Add to Cart</button>
           </div>
         ))}
       </div>
