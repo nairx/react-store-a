@@ -12,7 +12,7 @@ export default function Cart() {
         (value) =>
           cart[value.id]>0 && (
             <div key={value.id}>
-              {value.name}-{value.price}-{cart[value.id]}-
+              {value.name}-{value.price}-<button>-</button>{cart[value.id]}<button>+</button>-
               {value.price * cart[value.id]}-
               <button onClick={() => handleDelete(value.id)}>Delete</button>
             </div>
