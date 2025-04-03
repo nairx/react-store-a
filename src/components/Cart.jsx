@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { appContext } from "../App";
 import { useContext } from "react";
 export default function Cart() {
   const { cart, setCart, products } = useContext(appContext);
+  const [orderValue, setOrderValue] = useState(0);
   const handleDelete = (id) => {
     setCart({ ...cart, [id]: 0 });
   };
@@ -12,6 +13,13 @@ export default function Cart() {
   const decrement = (id) => {
     setCart({ ...cart, [id]: cart[id] - 1 });
   };
+  useEffect(() => {
+    setOrderValue(
+      products.reduce((total, value) => {
+        return total + value.price * (cart[value.id] ?? 0);
+      }, 0)
+    );
+  }, [cart]);
   return (
     <div>
       {products.map(
@@ -28,7 +36,7 @@ export default function Cart() {
           )
       )}
       <hr></hr>
-      <h3>Order Value:</h3>
+      <h3>Order Value:{orderValue}</h3>
     </div>
   );
 }
