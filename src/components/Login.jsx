@@ -4,7 +4,7 @@ import { appContext } from "../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-  const { user, setUser, users } = useContext(appContext);
+  const { user, setUser, users,cart } = useContext(appContext);
   const [msg, setMsg] = useState();
   const Navigate = useNavigate();
   const handleSubmit = () => {
@@ -13,7 +13,11 @@ export default function Login() {
     );
     if (found) {
       user.name = found.name;
-      Navigate("/");
+      if (Object.keys(cart).length > 0) {
+        Navigate("/cart");
+      } else {
+        Navigate("/");
+      }
     } else {
       setMsg("Invalid User");
     }

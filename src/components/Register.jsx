@@ -4,7 +4,7 @@ import { useState, useRef, useContext } from "react";
 import { appContext } from "../App";
 import "./Register.css";
 export default function Register() {
-  const { users, setUsers, user, setUser } = useContext(appContext);
+  const { users, setUsers, user, setUser,cart } = useContext(appContext);
   const [msg, setMsg] = useState();
   const msgRef = useRef();
   const Navigate = useNavigate()
@@ -17,7 +17,11 @@ export default function Register() {
       setMsg();
       setUsers([...users, user]);
       //setUser({ ...user, name: "", email: "", password: "" });
-      Navigate("/")
+      if (Object.keys(cart).length > 0) {
+        Navigate("/cart");
+      } else {
+        Navigate("/");
+      }
     }
   };
   const handleDelete = (email) => {

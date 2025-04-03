@@ -42,31 +42,36 @@ export default function Cart() {
     <div>
       <h3>My Cart</h3>
 
-      {/* {Object.keys(cart).length > 0 ? (<h3>Cart</h3>) : <h3>Cart is empty</h3>} */}
-
-      {products.map(
-        (value) =>
-          cart[value.id] > 0 && (
-            <div key={value.id}>
-              {value.name}-{value.price}-
-              <button onClick={() => decrement(value.id)}>-</button>
-              {cart[value.id]}
-              <button onClick={() => increment(value.id)}>+</button>-
-              {value.price * cart[value.id]}-
-              <button onClick={() => handleDelete(value.id)}>Delete</button>
-            </div>
-          )
+      {Object.keys(cart).length > 0 ? (
+        <div>
+          {products.map(
+            (value) =>
+              cart[value.id] > 0 && (
+                <div key={value.id}>
+                  {value.name}-{value.price}-
+                  <button onClick={() => decrement(value.id)}>-</button>
+                  {cart[value.id]}
+                  <button onClick={() => increment(value.id)}>+</button>-
+                  {value.price * cart[value.id]}-
+                  <button onClick={() => handleDelete(value.id)}>Delete</button>
+                </div>
+              )
+          )}
+          <hr></hr>
+          <h4>Order Value:{orderValue}</h4>
+          <p>
+            {user.email ? (
+              <button onClick={placeOrder}>Place Order</button>
+            ) : (
+              <button onClick={() => Navigate("/login")}>Login to Order</button>
+            )}
+          </p>
+        </div>
+      ) : (
+        <div>
+          <h4>Your Cart is empty</h4>
+        </div>
       )}
-      <hr></hr>
-      <h4>Order Value:{orderValue}</h4>
-      <p>
-        {user.email ? (
-          <button onClick={placeOrder}>Place Order</button>
-        ) : (
-          <button onClick={()=>Navigate("/login")}>Login to Order</button>
-        )}
-      </p>
-      {/* <h4>Your Cart is empty</h4> */}
     </div>
   );
 }
