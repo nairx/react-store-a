@@ -14,26 +14,26 @@ export default function Header() {
     <div className="App-Header-Row">
       <h1>My React Store</h1>
       <div className="App-Header-Links">
-        <Link to="react-store-a/" className="App-Header-Link">
+        <Link to="/react-store-a/" className="App-Header-Link">
           Home
         </Link>
-        <Link to="react-store-a/cart" className="App-Header-Link">
+        <Link to="/react-store-a/cart" className="App-Header-Link">
           Cart({items.length})
         </Link>
 
         {orders.find((value) => value.email === user.email) && (
-          <Link to="react-store-a/orders" className="App-Header-Link">
+          <Link to="/react-store-a/orders" className="App-Header-Link">
             Orders({myOrder})
           </Link>
         )}
 
         {user.email === "" || !user.email ? (
-          <Link to="react-store-a/login" className="App-Header-Link">
+          <Link to="/react-store-a/login" className="App-Header-Link">
             Login
           </Link>
         ) : (
           <Link
-            to="login"
+            to="/react-store-a/login"
             className="App-Header-Link"
             onClick={() =>
               setUser({ ...user, name: "", email: "", password: "" })
