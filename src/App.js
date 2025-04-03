@@ -30,11 +30,11 @@ function App() {
           <Header />
           <Routes>
             <Route index element={<Products />}></Route>
-            <Route path="products" element={<Products />}></Route>
-            <Route path="cart" element={<Cart />}></Route>
-            <Route path="orders" element={<Orders />}></Route>
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />}></Route>
+            <Route path="react-store-a/" element={<Products />}></Route>
+            <Route path="react-store-a/cart" element={<Cart />}></Route>
+            <Route path="react-store-a/orders" element={<Orders />}></Route>
+            <Route path="react-store-a/register" element={<Register />} />
+            <Route path="react-store-a/login" element={<Login />}></Route>
           </Routes>
           <Footer />
         </appContext.Provider>

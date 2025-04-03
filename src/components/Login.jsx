@@ -14,9 +14,9 @@ export default function Login() {
     if (found) {
       user.name = found.name;
       if (Object.keys(cart).length > 0) {
-        Navigate("/cart");
+        Navigate("/react-store-a/cart");
       } else {
-        Navigate("/");
+        Navigate("/react-store-a/");
       }
     } else {
       setMsg("Invalid User");
@@ -44,7 +44,7 @@ export default function Login() {
         <button onClick={handleSubmit}>Log In</button>
       </p>
       <p>
-        <Link to="../register">Create Account</Link>
+        <Link to="/react-store-a/register">Create Account</Link>
       </p>
     </div>
   );

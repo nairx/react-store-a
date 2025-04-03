@@ -29,7 +29,7 @@ export default function Cart() {
       },
     ]);
     setCart({});
-    Navigate("/orders");
+    Navigate("/react-store-a/orders");
   };
   useEffect(() => {
     setOrderValue(
@@ -63,7 +63,7 @@ export default function Cart() {
             {user.email ? (
               <button onClick={placeOrder}>Place Order</button>
             ) : (
-              <button onClick={() => Navigate("/login")}>Login to Order</button>
+              <button onClick={() => Navigate("/react-store-a/login")}>Login to Order</button>
             )}
           </p>
         </div>

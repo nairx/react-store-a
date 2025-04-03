@@ -18,9 +18,9 @@ export default function Register() {
       setUsers([...users, user]);
       //setUser({ ...user, name: "", email: "", password: "" });
       if (Object.keys(cart).length > 0) {
-        Navigate("/cart");
+        Navigate("/react-store-a/cart");
       } else {
-        Navigate("/");
+        Navigate("/react-store-a/");
       }
     }
   };
@@ -60,7 +60,7 @@ export default function Register() {
           <button onClick={handleSubmit}>Submit</button>
         </p>
         <p>
-          <Link to="../login">Already a member? Login here!</Link>
+          <Link to="/react-store-a/login">Already a member? Login here!</Link>
         </p>
       </div>
       <div className="App-Register-Box">
