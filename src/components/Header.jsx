@@ -15,6 +15,9 @@ export default function Header() {
         <Link to="cart" className="App-Header-Link">
           Cart({items.length})
         </Link>
+        <Link to="orders" className="App-Header-Link">
+          Orders
+        </Link>
         {user.email === "" || (!user.email) ? (
           <Link to="login" className="App-Header-Link">
             Login
